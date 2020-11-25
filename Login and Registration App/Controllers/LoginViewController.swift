@@ -18,8 +18,8 @@ class LoginViewController: UIViewController {
     var checkRecord = false
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        debugPrint(path[0])
     }
 
     @IBAction func onclicklogin(_ sender: AnyObject) {

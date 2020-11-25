@@ -30,6 +30,7 @@ enum ValidationError: Error {
 }
 
 class ValidationManager {
+    //todo: logic can be simplified
     class func validate (value:String?, validationType:ValidationTypes,required:Bool) throws -> Bool {
         let value:String? = value?.trimmingCharacters(in: CharacterSet.whitespaces)
         var isValid = false

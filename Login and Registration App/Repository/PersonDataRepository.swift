@@ -14,6 +14,7 @@ protocol PersonRepository {
 
 
 struct PersonDataRepository : PersonRepository {
+
     func create(person: Person) {
         let cdPerson = CDPerson(context: PersistentStorage.shared.context)
         cdPerson.firstname = person.firstname
@@ -27,8 +28,9 @@ struct PersonDataRepository : PersonRepository {
     func getAll() -> [Person]? {
         let result = PersistentStorage.shared.fetchManagedObject(managedObject: CDPerson.self)
         var person : [Person] = []
-        result?.forEach({(cdPerson) in  person.append(cdPerson.convertToPerson())
-        })
+        result?.forEach({(cdPerson) in
+                        person.append(cdPerson.convertToPerson())
+                        })
         return person
     }
 }

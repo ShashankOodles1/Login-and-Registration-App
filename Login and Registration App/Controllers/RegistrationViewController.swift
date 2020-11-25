@@ -15,18 +15,16 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     let manager : PersonManager = PersonManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         debugPrint(path[0])
-        
-       
-        
     }
 
     @IBAction func onTapCreate(_ sender: Any) {
-        var person = Person(firstname: txtFirstName.text, lastname: txtLastName.text, emailid: txtEmailid.text, password: txtPassword.text, confirmPassword: txtConfirmPassword.text)
+        let person = Person(firstname: txtFirstName.text, lastname: txtLastName.text, emailid: txtEmailid.text, password: txtPassword.text, confirmPassword: txtConfirmPassword.text)
          manager.createPerson(person: person)
         var registrationModel =  person
         var errorString = ""
